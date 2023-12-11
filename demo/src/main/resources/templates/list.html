@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Tracker App</h2>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+
+            <th>Title</th>
+            <th>Description</th>
+            <th>Finished</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.title}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.completed}"></td>
+            <td>
+                <a th:href="@{'/edit/' + ${task.id}}" class="btn btn-primary btn-sm">Edit</a>
+                <a th:href="@{'/delete/' + ${task.id}}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/form}" class="btn btn-success">Create New Task</a>
+</div>
+
+</body>
+</html>

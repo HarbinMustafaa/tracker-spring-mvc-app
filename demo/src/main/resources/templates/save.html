@@ -1,0 +1,21 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Task</title>
+</head>
+<body>
+
+<h2>Create Task</h2>
+
+<form th:object="${task}" th:action="@{/save}" method="post">
+  <label for="description">Description:</label>
+  <input type="text" id="description" name="description" th:field="*{description}" required>
+
+  <button type="submit">Save Task</button>
+</form>
+
+<a th:href="@{/}" style="margin-top: 20px; display: block;">Back to Task List</a>
+
+</body>
+</html>
